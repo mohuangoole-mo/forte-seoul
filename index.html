@@ -30,9 +30,6 @@ section{padding:44px 0 8px}
 .hero h1{font-family:"Noto Serif TC",serif;font-size:34px;line-height:1.25;margin:0 0 10px;font-weight:900}
 .hero h1 mark{background:none;color:var(--yel)}
 .hero p{color:#cbbda8;margin:0 0 20px;font-size:15px}
-.vid{position:relative;border-radius:18px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:78vh;margin:0 auto 20px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
-.vid video{width:100%;height:100%;object-fit:cover;display:block}
-.sound{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.6);color:#fff;border:0;border-radius:99px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px 18px;border-radius:14px;font-weight:700;font-size:17px;text-decoration:none;border:0}
 .btn-line{background:var(--green);color:#fff}
 .btn-ghost{background:transparent;color:#f3ece1;border:1px solid #5c4a35;margin-top:10px;font-weight:500;font-size:15px}
@@ -93,6 +90,45 @@ thead th:first-child{text-align:left}
 .links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .links a{display:block;text-align:center;border:1px solid #5c4a35;border-radius:12px;padding:10px;text-decoration:none;font-size:14px}
 
+/* 台幣、挑選、試算、換算 */
+.twd{display:block;font-style:normal;font-weight:400;font-size:12px;color:var(--mute);text-align:right}
+.pl li.pick{cursor:pointer;align-items:center;-webkit-tap-highlight-color:transparent}
+.pl li.pick span{display:flex;gap:10px;align-items:flex-start}
+.pl li.pick span::before,td.pick::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border:1.5px solid var(--gold2);border-radius:50%;box-sizing:border-box}
+.pl li.pick.on span::before,td.pick.on::before{background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat;border-color:var(--gold)}
+.pl li.pick.on{background:#f6ecdc;margin:0 -18px;padding-left:18px;padding-right:18px}
+td.pick{cursor:pointer;position:relative;padding-top:12px}
+td.pick::before{display:block;width:14px;height:14px;margin:0 0 4px auto;border-width:1.5px}
+td.pick.on{background:#f6ecdc}
+td .twd{font-size:11px}
+.hint{font-size:13px;color:var(--gold);background:#f3eadc;border-radius:10px;padding:8px 12px;margin:0 0 14px}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.calc ul{list-style:none;margin:0;padding:0}
+.calc li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+.calc li:first-child{border-top:0}
+.calc li span{flex:1}
+.calc li small{display:block;color:var(--mute);font-size:12px}
+.calc li b{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.calc li button{flex:none;border:0;background:none;color:var(--mute);font-size:18px;line-height:1;padding:2px 0 2px 6px;cursor:pointer}
+.empty{color:var(--mute);font-size:14px;margin:0;padding:6px 0}
+.total{border-top:2px solid var(--ink);margin-top:6px;padding-top:12px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.total b{font-family:"Noto Serif TC",serif;font-size:24px;line-height:1.2;text-align:right;font-variant-numeric:tabular-nums}
+.total .twd{font-size:14px;color:var(--gold);font-family:"Noto Sans TC",sans-serif;font-weight:700}
+.calc .clear{margin-top:12px;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;color:var(--mute);cursor:pointer}
+.fx{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.fx label{display:block;font-size:13px;color:var(--mute);margin:0 0 4px}
+.fx .in{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:0 12px;margin-bottom:6px}
+.fx .in:focus-within{border-color:var(--gold)}
+.fx .in span{font-weight:700;color:var(--gold);width:38px}
+.fx input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:22px;font-weight:700;padding:10px 0;font-variant-numeric:tabular-nums;color:var(--ink)}
+.fx .swap{text-align:center;color:var(--gold2);font-size:18px;margin:2px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 10px}
+.chips button{border:1px solid var(--line);background:#f3eadc;border-radius:99px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.rate{font-size:12.5px;color:var(--mute);margin:0}
+.sum{display:none;max-width:528px;margin:0 auto 8px;text-decoration:none;background:var(--dark);color:#f3ece1;border-radius:12px;padding:9px 14px;font-size:14px;justify-content:space-between;align-items:center;gap:10px}
+.sum.show{display:flex}
+.sum b{color:var(--yel);font-variant-numeric:tabular-nums;white-space:nowrap}
+
 footer{padding:30px 0 20px;font-size:12px;color:var(--mute)}
 footer p{margin:0 0 8px}
 
@@ -112,6 +148,7 @@ footer p{margin:0 0 8px}
       加 Forte 中文 LINE 諮詢
     </a>
     <a class="btn btn-ghost" href="#events">先看 11～12 月活動 ↓</a>
+    <a class="btn btn-ghost" href="#price">自己挑療程、算預算 ↓</a>
   </div>
 </header>
 
@@ -178,24 +215,55 @@ footer p{margin:0 0 8px}
 <section id="price">
   <p class="eyebrow">PRICE LIST</p>
   <h2>11～12 月優惠價目表</h2>
-  <p class="sub">韓元，含稅。點開分類看細項。</p>
-  <details class="grp" open><summary>緊緻拉提<small>6 項</small></summary><ul class="pl"><li><span>鈦提升 40kJ</span><b>₩499,000</b></li><li><span>鈦提升 80kJ</span><b>₩799,000</b></li><li><span>鈦提升 100kJ</span><b>₩899,000</b></li><li><span>Onda 雙下巴 拉提 50kJ</span><b>₩400,000</b></li><li><span>Onda 臉部 拉提 70kJ</span><b>₩550,000</b></li><li><span>Onda 臉部 拉提 90kJ</span><b>₩660,000</b></li></ul></details><details class="grp"><summary>膚況改善＆緊緻套餐<small>6 項</small></summary><ul class="pl"><li><span>玩美電波 300 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩900,000</b></li><li><span>玩美電波 600 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,390,000</b></li><li><span>Onda 70kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩990,000</b></li><li><span>Onda 90kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,090,000</b></li><li><span>鈦提升 80kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,200,000</b></li><li><span>鈦提升 100kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,300,000</b></li></ul></details><details class="grp"><summary>矽谷電波無痛套餐<small>12 項</small></summary><ul class="pl"><li><span>矽谷電波（微針）＋喬雅露水光 8cc</span><b>₩490,000</b></li><li><span>矽谷電波（微針）＋麗珠蘭水光 4cc</span><b>₩550,000</b></li><li><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc</span><b>₩850,000</b></li><li><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc</span><b>₩799,000</b></li><li><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋Onda 90kJ</span><b>₩1,200,000</b></li><li><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 80kJ</span><b>₩1,339,000</b></li><li><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 100kJ</span><b>₩1,439,000</b></li><li><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋Onda 90kJ</span><b>₩1,490,000</b></li><li><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 80kJ</span><b>₩1,639,000</b></li><li><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 100kJ</span><b>₩1,739,000</b></li><li><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 300 發</span><b>₩1,289,000</b></li><li><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 600 發</span><b>₩1,739,000</b></li></ul></details><details class="grp"><summary>美國音波拉提緊緻<small>5 項</small></summary><ul class="pl"><li><span>美國音波 300 發＋玩美電波 300 發</span><b>₩2,490,000</b></li><li><span>美國音波 300 發＋鈦提升 80kJ</span><b>₩2,200,000</b></li><li><span>美國音波 300 發＋Onda 90kJ</span><b>₩2,100,000</b></li><li><span>美國音波 300 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩2,100,000</b></li><li><span>美國音波 300 發＋Forte 塑顏高級版</span><b>₩1,990,000</b></li></ul></details><details class="grp"><summary>黑眼圈、眼部管理<small>2 項</small></summary><ul class="pl"><li><span>眼部麗珠蘭 2cc＋眼部玩美電波 300 發</span><b>₩840,000</b></li><li><span>眼部麗珠蘭 2cc＋眼部玩美電波 600 發</span><b>₩1,240,000</b></li></ul></details><details class="grp"><summary>脖紋、頸部童顏管理<small>2 項</small></summary><ul class="pl"><li><span>鈦提升 40kJ＋頸紋填充（保柔緹）2cc</span><b>₩1,250,000</b></li><li><span>鈦提升 40kJ＋喬雅露水光 4cc</span><b>₩710,000</b></li></ul></details>
+  <p class="sub">韓元，含稅，括號是約略台幣。點開分類看細項。</p>
+  <p class="hint">點一下品項就會加進「我的預算試算」，再點一次取消。</p>
+  <details class="grp" open><summary>緊緻拉提<small>6 項</small></summary><ul class="pl"><li class="pick" data-n="鈦提升 40kJ" data-g="緊緻拉提" data-krw="499000"><span>鈦提升 40kJ</span><b>₩499,000<i class="twd" data-krw="499000"></i></b></li><li class="pick" data-n="鈦提升 80kJ" data-g="緊緻拉提" data-krw="799000"><span>鈦提升 80kJ</span><b>₩799,000<i class="twd" data-krw="799000"></i></b></li><li class="pick" data-n="鈦提升 100kJ" data-g="緊緻拉提" data-krw="899000"><span>鈦提升 100kJ</span><b>₩899,000<i class="twd" data-krw="899000"></i></b></li><li class="pick" data-n="Onda 雙下巴 拉提 50kJ" data-g="緊緻拉提" data-krw="400000"><span>Onda 雙下巴 拉提 50kJ</span><b>₩400,000<i class="twd" data-krw="400000"></i></b></li><li class="pick" data-n="Onda 臉部 拉提 70kJ" data-g="緊緻拉提" data-krw="550000"><span>Onda 臉部 拉提 70kJ</span><b>₩550,000<i class="twd" data-krw="550000"></i></b></li><li class="pick" data-n="Onda 臉部 拉提 90kJ" data-g="緊緻拉提" data-krw="660000"><span>Onda 臉部 拉提 90kJ</span><b>₩660,000<i class="twd" data-krw="660000"></i></b></li></ul></details><details class="grp"><summary>膚況改善＆緊緻套餐<small>6 項</small></summary><ul class="pl"><li class="pick" data-n="玩美電波 300 發＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="900000"><span>玩美電波 300 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩900,000<i class="twd" data-krw="900000"></i></b></li><li class="pick" data-n="玩美電波 600 發＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="1390000"><span>玩美電波 600 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,390,000<i class="twd" data-krw="1390000"></i></b></li><li class="pick" data-n="Onda 70kJ＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="990000"><span>Onda 70kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩990,000<i class="twd" data-krw="990000"></i></b></li><li class="pick" data-n="Onda 90kJ＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="1090000"><span>Onda 90kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,090,000<i class="twd" data-krw="1090000"></i></b></li><li class="pick" data-n="鈦提升 80kJ＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="1200000"><span>鈦提升 80kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,200,000<i class="twd" data-krw="1200000"></i></b></li><li class="pick" data-n="鈦提升 100kJ＋無痛 Forte 全效水光加強版 6cc" data-g="膚況改善＆緊緻套餐" data-krw="1300000"><span>鈦提升 100kJ＋無痛 Forte 全效水光加強版 6cc</span><b>₩1,300,000<i class="twd" data-krw="1300000"></i></b></li></ul></details><details class="grp"><summary>矽谷電波無痛套餐<small>12 項</small></summary><ul class="pl"><li class="pick" data-n="矽谷電波（微針）＋喬雅露水光 8cc" data-g="矽谷電波無痛套餐" data-krw="490000"><span>矽谷電波（微針）＋喬雅露水光 8cc</span><b>₩490,000<i class="twd" data-krw="490000"></i></b></li><li class="pick" data-n="矽谷電波（微針）＋麗珠蘭水光 4cc" data-g="矽谷電波無痛套餐" data-krw="550000"><span>矽谷電波（微針）＋麗珠蘭水光 4cc</span><b>₩550,000<i class="twd" data-krw="550000"></i></b></li><li class="pick" data-n="矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc" data-g="矽谷電波無痛套餐" data-krw="850000"><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc</span><b>₩850,000<i class="twd" data-krw="850000"></i></b></li><li class="pick" data-n="矽谷電波＋無痛 Forte 全效水光加強版 6cc" data-g="矽谷電波無痛套餐" data-krw="799000"><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc</span><b>₩799,000<i class="twd" data-krw="799000"></i></b></li><li class="pick" data-n="矽谷電波（微針）＋麗珠蘭水光 4cc＋Onda 90kJ" data-g="矽谷電波無痛套餐" data-krw="1200000"><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋Onda 90kJ</span><b>₩1,200,000<i class="twd" data-krw="1200000"></i></b></li><li class="pick" data-n="矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 80kJ" data-g="矽谷電波無痛套餐" data-krw="1339000"><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 80kJ</span><b>₩1,339,000<i class="twd" data-krw="1339000"></i></b></li><li class="pick" data-n="矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 100kJ" data-g="矽谷電波無痛套餐" data-krw="1439000"><span>矽谷電波（微針）＋麗珠蘭水光 4cc＋鈦提升 100kJ</span><b>₩1,439,000<i class="twd" data-krw="1439000"></i></b></li><li class="pick" data-n="矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋Onda 90kJ" data-g="矽谷電波無痛套餐" data-krw="1490000"><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋Onda 90kJ</span><b>₩1,490,000<i class="twd" data-krw="1490000"></i></b></li><li class="pick" data-n="矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 80kJ" data-g="矽谷電波無痛套餐" data-krw="1639000"><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 80kJ</span><b>₩1,639,000<i class="twd" data-krw="1639000"></i></b></li><li class="pick" data-n="矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 100kJ" data-g="矽谷電波無痛套餐" data-krw="1739000"><span>矽谷電波＋喬雅露水光 4cc＋麗珠蘭水光 4cc＋鈦提升 100kJ</span><b>₩1,739,000<i class="twd" data-krw="1739000"></i></b></li><li class="pick" data-n="矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 300 發" data-g="矽谷電波無痛套餐" data-krw="1289000"><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 300 發</span><b>₩1,289,000<i class="twd" data-krw="1289000"></i></b></li><li class="pick" data-n="矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 600 發" data-g="矽谷電波無痛套餐" data-krw="1739000"><span>矽谷電波＋無痛 Forte 全效水光加強版 6cc＋玩美電波 600 發</span><b>₩1,739,000<i class="twd" data-krw="1739000"></i></b></li></ul></details><details class="grp"><summary>美國音波拉提緊緻<small>5 項</small></summary><ul class="pl"><li class="pick" data-n="美國音波 300 發＋玩美電波 300 發" data-g="美國音波拉提緊緻" data-krw="2490000"><span>美國音波 300 發＋玩美電波 300 發</span><b>₩2,490,000<i class="twd" data-krw="2490000"></i></b></li><li class="pick" data-n="美國音波 300 發＋鈦提升 80kJ" data-g="美國音波拉提緊緻" data-krw="2200000"><span>美國音波 300 發＋鈦提升 80kJ</span><b>₩2,200,000<i class="twd" data-krw="2200000"></i></b></li><li class="pick" data-n="美國音波 300 發＋Onda 90kJ" data-g="美國音波拉提緊緻" data-krw="2100000"><span>美國音波 300 發＋Onda 90kJ</span><b>₩2,100,000<i class="twd" data-krw="2100000"></i></b></li><li class="pick" data-n="美國音波 300 發＋無痛 Forte 全效水光加強版 6cc" data-g="美國音波拉提緊緻" data-krw="2100000"><span>美國音波 300 發＋無痛 Forte 全效水光加強版 6cc</span><b>₩2,100,000<i class="twd" data-krw="2100000"></i></b></li><li class="pick" data-n="美國音波 300 發＋Forte 塑顏高級版" data-g="美國音波拉提緊緻" data-krw="1990000"><span>美國音波 300 發＋Forte 塑顏高級版</span><b>₩1,990,000<i class="twd" data-krw="1990000"></i></b></li></ul></details><details class="grp"><summary>黑眼圈、眼部管理<small>2 項</small></summary><ul class="pl"><li class="pick" data-n="眼部麗珠蘭 2cc＋眼部玩美電波 300 發" data-g="黑眼圈、眼部管理" data-krw="840000"><span>眼部麗珠蘭 2cc＋眼部玩美電波 300 發</span><b>₩840,000<i class="twd" data-krw="840000"></i></b></li><li class="pick" data-n="眼部麗珠蘭 2cc＋眼部玩美電波 600 發" data-g="黑眼圈、眼部管理" data-krw="1240000"><span>眼部麗珠蘭 2cc＋眼部玩美電波 600 發</span><b>₩1,240,000<i class="twd" data-krw="1240000"></i></b></li></ul></details><details class="grp"><summary>脖紋、頸部童顏管理<small>2 項</small></summary><ul class="pl"><li class="pick" data-n="鈦提升 40kJ＋頸紋填充（保柔緹）2cc" data-g="脖紋、頸部童顏管理" data-krw="1250000"><span>鈦提升 40kJ＋頸紋填充（保柔緹）2cc</span><b>₩1,250,000<i class="twd" data-krw="1250000"></i></b></li><li class="pick" data-n="鈦提升 40kJ＋喬雅露水光 4cc" data-g="脖紋、頸部童顏管理" data-krw="710000"><span>鈦提升 40kJ＋喬雅露水光 4cc</span><b>₩710,000<i class="twd" data-krw="710000"></i></b></li></ul></details>
 </section>
 
 <section>
   <p class="eyebrow">FULL PRICE</p>
   <h2>完整價目表</h2>
-  <p class="sub">韓元，含稅（稅後價格）。</p>
+  <p class="sub">韓元，含稅（稅後價格），下面小字是約略台幣。肉毒點價格格子也能加進試算。</p>
   <details class="grp" open><summary>肉毒<small>13 項</small></summary>
+    <p class="small" style="margin:0 18px 6px">表格可以左右滑，看德國淨優明那欄 →</p>
     <div class="tbl"><table>
       <thead><tr><th>部位</th><th>韓國產</th><th>韓國產高級版</th><th>德國淨優明</th></tr></thead>
-      <tbody><tr><th>肉毒去皺針 1 個部位（額頭、眉間、鼻背、眼角）</th><td>26,000</td><td>50,000</td><td>75,000</td></tr><tr><th>肉毒去皺針 3 個部位（額頭、眉間、鼻背、眼角）</th><td>72,000</td><td>120,000</td><td>180,000</td></tr><tr><th>咬肌</th><td>40,000</td><td>90,000</td><td>180,000</td></tr><tr><th>嘴角／下巴／鼻翼／法令紋／露齦笑</th><td>40,000</td><td>90,000</td><td>180,000</td></tr><tr><th>太陽穴／唾液腺／顳區</th><td>50,000</td><td>90,000</td><td>180,000</td></tr><tr><th>頸闊肌 50u</th><td>180,000</td><td>250,000</td><td>380,000</td></tr><tr><th>頸紋</th><td>200,000</td><td>250,000</td><td>380,000</td></tr><tr><th>天鵝頸</th><td>157,000</td><td>180,000</td><td>300,000</td></tr><tr><th>身體肉毒 100u（小腿／斜方肌）</th><td>89,000</td><td>250,000</td><td>470,000</td></tr><tr><th>身體肉毒 200u（小腿／斜方肌）</th><td>148,000</td><td>470,000</td><td>900,000</td></tr><tr><th>汗腺 100u（腋下等）</th><td>89,000</td><td>130,000</td><td>450,000</td></tr><tr><th>汗腺 200u（腋下等）</th><td>129,000</td><td>250,000</td><td>900,000</td></tr><tr><th>肉毒緊緻水光</th><td>190,000</td><td>250,000</td><td>370,000</td></tr></tbody>
+      <tbody><tr><th>肉毒去皺針 1 個部位（額頭、眉間、鼻背、眼角）</th><td class="pick" data-n="肉毒去皺針 1 個部位（額頭、眉間、鼻背、眼角）（韓國產）" data-g="肉毒" data-krw="26000">26,000<i class="twd" data-krw="26000"></i></td><td class="pick" data-n="肉毒去皺針 1 個部位（額頭、眉間、鼻背、眼角）（韓國產高級版）" data-g="肉毒" data-krw="50000">50,000<i class="twd" data-krw="50000"></i></td><td class="pick" data-n="肉毒去皺針 1 個部位（額頭、眉間、鼻背、眼角）（德國淨優明）" data-g="肉毒" data-krw="75000">75,000<i class="twd" data-krw="75000"></i></td></tr><tr><th>肉毒去皺針 3 個部位（額頭、眉間、鼻背、眼角）</th><td class="pick" data-n="肉毒去皺針 3 個部位（額頭、眉間、鼻背、眼角）（韓國產）" data-g="肉毒" data-krw="72000">72,000<i class="twd" data-krw="72000"></i></td><td class="pick" data-n="肉毒去皺針 3 個部位（額頭、眉間、鼻背、眼角）（韓國產高級版）" data-g="肉毒" data-krw="120000">120,000<i class="twd" data-krw="120000"></i></td><td class="pick" data-n="肉毒去皺針 3 個部位（額頭、眉間、鼻背、眼角）（德國淨優明）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td></tr><tr><th>咬肌</th><td class="pick" data-n="咬肌（韓國產）" data-g="肉毒" data-krw="40000">40,000<i class="twd" data-krw="40000"></i></td><td class="pick" data-n="咬肌（韓國產高級版）" data-g="肉毒" data-krw="90000">90,000<i class="twd" data-krw="90000"></i></td><td class="pick" data-n="咬肌（德國淨優明）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td></tr><tr><th>嘴角／下巴／鼻翼／法令紋／露齦笑</th><td class="pick" data-n="嘴角／下巴／鼻翼／法令紋／露齦笑（韓國產）" data-g="肉毒" data-krw="40000">40,000<i class="twd" data-krw="40000"></i></td><td class="pick" data-n="嘴角／下巴／鼻翼／法令紋／露齦笑（韓國產高級版）" data-g="肉毒" data-krw="90000">90,000<i class="twd" data-krw="90000"></i></td><td class="pick" data-n="嘴角／下巴／鼻翼／法令紋／露齦笑（德國淨優明）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td></tr><tr><th>太陽穴／唾液腺／顳區</th><td class="pick" data-n="太陽穴／唾液腺／顳區（韓國產）" data-g="肉毒" data-krw="50000">50,000<i class="twd" data-krw="50000"></i></td><td class="pick" data-n="太陽穴／唾液腺／顳區（韓國產高級版）" data-g="肉毒" data-krw="90000">90,000<i class="twd" data-krw="90000"></i></td><td class="pick" data-n="太陽穴／唾液腺／顳區（德國淨優明）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td></tr><tr><th>頸闊肌 50u</th><td class="pick" data-n="頸闊肌 50u（韓國產）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td><td class="pick" data-n="頸闊肌 50u（韓國產高級版）" data-g="肉毒" data-krw="250000">250,000<i class="twd" data-krw="250000"></i></td><td class="pick" data-n="頸闊肌 50u（德國淨優明）" data-g="肉毒" data-krw="380000">380,000<i class="twd" data-krw="380000"></i></td></tr><tr><th>頸紋</th><td class="pick" data-n="頸紋（韓國產）" data-g="肉毒" data-krw="200000">200,000<i class="twd" data-krw="200000"></i></td><td class="pick" data-n="頸紋（韓國產高級版）" data-g="肉毒" data-krw="250000">250,000<i class="twd" data-krw="250000"></i></td><td class="pick" data-n="頸紋（德國淨優明）" data-g="肉毒" data-krw="380000">380,000<i class="twd" data-krw="380000"></i></td></tr><tr><th>天鵝頸</th><td class="pick" data-n="天鵝頸（韓國產）" data-g="肉毒" data-krw="157000">157,000<i class="twd" data-krw="157000"></i></td><td class="pick" data-n="天鵝頸（韓國產高級版）" data-g="肉毒" data-krw="180000">180,000<i class="twd" data-krw="180000"></i></td><td class="pick" data-n="天鵝頸（德國淨優明）" data-g="肉毒" data-krw="300000">300,000<i class="twd" data-krw="300000"></i></td></tr><tr><th>身體肉毒 100u（小腿／斜方肌）</th><td class="pick" data-n="身體肉毒 100u（小腿／斜方肌）（韓國產）" data-g="肉毒" data-krw="89000">89,000<i class="twd" data-krw="89000"></i></td><td class="pick" data-n="身體肉毒 100u（小腿／斜方肌）（韓國產高級版）" data-g="肉毒" data-krw="250000">250,000<i class="twd" data-krw="250000"></i></td><td class="pick" data-n="身體肉毒 100u（小腿／斜方肌）（德國淨優明）" data-g="肉毒" data-krw="470000">470,000<i class="twd" data-krw="470000"></i></td></tr><tr><th>身體肉毒 200u（小腿／斜方肌）</th><td class="pick" data-n="身體肉毒 200u（小腿／斜方肌）（韓國產）" data-g="肉毒" data-krw="148000">148,000<i class="twd" data-krw="148000"></i></td><td class="pick" data-n="身體肉毒 200u（小腿／斜方肌）（韓國產高級版）" data-g="肉毒" data-krw="470000">470,000<i class="twd" data-krw="470000"></i></td><td class="pick" data-n="身體肉毒 200u（小腿／斜方肌）（德國淨優明）" data-g="肉毒" data-krw="900000">900,000<i class="twd" data-krw="900000"></i></td></tr><tr><th>汗腺 100u（腋下等）</th><td class="pick" data-n="汗腺 100u（腋下等）（韓國產）" data-g="肉毒" data-krw="89000">89,000<i class="twd" data-krw="89000"></i></td><td class="pick" data-n="汗腺 100u（腋下等）（韓國產高級版）" data-g="肉毒" data-krw="130000">130,000<i class="twd" data-krw="130000"></i></td><td class="pick" data-n="汗腺 100u（腋下等）（德國淨優明）" data-g="肉毒" data-krw="450000">450,000<i class="twd" data-krw="450000"></i></td></tr><tr><th>汗腺 200u（腋下等）</th><td class="pick" data-n="汗腺 200u（腋下等）（韓國產）" data-g="肉毒" data-krw="129000">129,000<i class="twd" data-krw="129000"></i></td><td class="pick" data-n="汗腺 200u（腋下等）（韓國產高級版）" data-g="肉毒" data-krw="250000">250,000<i class="twd" data-krw="250000"></i></td><td class="pick" data-n="汗腺 200u（腋下等）（德國淨優明）" data-g="肉毒" data-krw="900000">900,000<i class="twd" data-krw="900000"></i></td></tr><tr><th>肉毒緊緻水光</th><td class="pick" data-n="肉毒緊緻水光（韓國產）" data-g="肉毒" data-krw="190000">190,000<i class="twd" data-krw="190000"></i></td><td class="pick" data-n="肉毒緊緻水光（韓國產高級版）" data-g="肉毒" data-krw="250000">250,000<i class="twd" data-krw="250000"></i></td><td class="pick" data-n="肉毒緊緻水光（德國淨優明）" data-g="肉毒" data-krw="370000">370,000<i class="twd" data-krw="370000"></i></td></tr></tbody>
     </table></div>
   </details>
-  <details class="grp"><summary>膠原蛋白增容<small>6 項</small></summary><ul class="pl"><li><span>瑞德喜／晶亮瓷 4cc／一瓶</span><b>₩480,000</b></li><li><span>瑞德喜／晶亮瓷 8cc／兩瓶</span><b>₩920,000</b></li><li><span>童顏針／Sculptra 8cc／一瓶</span><b>₩700,000</b></li><li><span>童顏針／Sculptra 8cc／兩瓶</span><b>₩1,200,000</b></li><li><span>水靈針／GOURI 5cc／一瓶</span><b>₩480,000</b></li><li><span>水靈針／GOURI 5cc／兩瓶</span><b>₩900,000</b></li></ul></details><details class="grp"><summary>玻尿酸 不限部位<small>7 項</small></summary><ul class="pl"><li><span>紐拉美斯 NURAMIS 1cc</span><b>₩160,000</b></li><li><span>REJUVIEL 1cc</span><b>₩240,000</b></li><li><span>喬雅登 JUVEDERM 1cc</span><b>₩480,000</b></li><li><span>保柔緹 BELLOTERO 1cc</span><b>₩420,000</b></li><li><span>玻尿酸溶解 2cc 以下</span><b>₩105,000</b></li><li><span>玻尿酸溶解 5cc 以下</span><b>₩210,000</b></li><li><span>玻尿酸溶解 5cc 以上</span><b>₩290,000</b></li></ul></details>
+  <details class="grp"><summary>膠原蛋白增容<small>6 項</small></summary><ul class="pl"><li class="pick" data-n="瑞德喜／晶亮瓷 4cc／一瓶" data-g="膠原蛋白增容" data-krw="480000"><span>瑞德喜／晶亮瓷 4cc／一瓶</span><b>₩480,000<i class="twd" data-krw="480000"></i></b></li><li class="pick" data-n="瑞德喜／晶亮瓷 8cc／兩瓶" data-g="膠原蛋白增容" data-krw="920000"><span>瑞德喜／晶亮瓷 8cc／兩瓶</span><b>₩920,000<i class="twd" data-krw="920000"></i></b></li><li class="pick" data-n="童顏針／Sculptra 8cc／一瓶" data-g="膠原蛋白增容" data-krw="700000"><span>童顏針／Sculptra 8cc／一瓶</span><b>₩700,000<i class="twd" data-krw="700000"></i></b></li><li class="pick" data-n="童顏針／Sculptra 8cc／兩瓶" data-g="膠原蛋白增容" data-krw="1200000"><span>童顏針／Sculptra 8cc／兩瓶</span><b>₩1,200,000<i class="twd" data-krw="1200000"></i></b></li><li class="pick" data-n="水靈針／GOURI 5cc／一瓶" data-g="膠原蛋白增容" data-krw="480000"><span>水靈針／GOURI 5cc／一瓶</span><b>₩480,000<i class="twd" data-krw="480000"></i></b></li><li class="pick" data-n="水靈針／GOURI 5cc／兩瓶" data-g="膠原蛋白增容" data-krw="900000"><span>水靈針／GOURI 5cc／兩瓶</span><b>₩900,000<i class="twd" data-krw="900000"></i></b></li></ul></details><details class="grp"><summary>玻尿酸 不限部位<small>7 項</small></summary><ul class="pl"><li class="pick" data-n="紐拉美斯 NURAMIS 1cc" data-g="玻尿酸 不限部位" data-krw="160000"><span>紐拉美斯 NURAMIS 1cc</span><b>₩160,000<i class="twd" data-krw="160000"></i></b></li><li class="pick" data-n="REJUVIEL 1cc" data-g="玻尿酸 不限部位" data-krw="240000"><span>REJUVIEL 1cc</span><b>₩240,000<i class="twd" data-krw="240000"></i></b></li><li class="pick" data-n="喬雅登 JUVEDERM 1cc" data-g="玻尿酸 不限部位" data-krw="480000"><span>喬雅登 JUVEDERM 1cc</span><b>₩480,000<i class="twd" data-krw="480000"></i></b></li><li class="pick" data-n="保柔緹 BELLOTERO 1cc" data-g="玻尿酸 不限部位" data-krw="420000"><span>保柔緹 BELLOTERO 1cc</span><b>₩420,000<i class="twd" data-krw="420000"></i></b></li><li class="pick" data-n="玻尿酸溶解 2cc 以下" data-g="玻尿酸 不限部位" data-krw="105000"><span>玻尿酸溶解 2cc 以下</span><b>₩105,000<i class="twd" data-krw="105000"></i></b></li><li class="pick" data-n="玻尿酸溶解 5cc 以下" data-g="玻尿酸 不限部位" data-krw="210000"><span>玻尿酸溶解 5cc 以下</span><b>₩210,000<i class="twd" data-krw="210000"></i></b></li><li class="pick" data-n="玻尿酸溶解 5cc 以上" data-g="玻尿酸 不限部位" data-krw="290000"><span>玻尿酸溶解 5cc 以上</span><b>₩290,000<i class="twd" data-krw="290000"></i></b></li></ul></details>
   <h3 style="margin:26px 0 4px;font-size:17px">其他價目表（診所原圖）</h3>
   <p class="small" style="margin:0 0 12px">點圖片可以放大看。</p>
   <div class="sheets"><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p16.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p16.jpg" alt="Forte 價目表：電波・音波"><span>電波・音波</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p17.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p17.jpg" alt="Forte 價目表：鈦提升・Onda"><span>鈦提升・Onda</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p18.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p18.jpg" alt="Forte 價目表：人氣套餐推薦"><span>人氣套餐推薦</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p19.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p19.jpg" alt="Forte 價目表：填充・注射"><span>填充・注射</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p20.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p20.jpg" alt="Forte 價目表：Inmode"><span>Inmode</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p21.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p21.jpg" alt="Forte 價目表：臉部溶脂針"><span>臉部溶脂針</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p22.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p22.jpg" alt="Forte 價目表：溶脂針＆Onda 套餐"><span>溶脂針＆Onda 套餐</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p23.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p23.jpg" alt="Forte 價目表：溶脂針＆Inmode 套餐"><span>溶脂針＆Inmode 套餐</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p24.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p24.jpg" alt="Forte 價目表：鈦提升・埋線 套餐"><span>鈦提升・埋線 套餐</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p25.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p25.jpg" alt="Forte 價目表：PRP・幹細胞"><span>PRP・幹細胞</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p26.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p26.jpg" alt="Forte 價目表：點滴輸液・3D 皮膚檢測"><span>點滴輸液・3D 皮膚檢測</span></a><a class="sheet" href="https://tw.forte-clinic.net/assets/price/p09.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://tw.forte-clinic.net/assets/price/p09.jpg" alt="Forte 價目表：Forte 毛囊管理課程"><span>Forte 毛囊管理課程</span></a></div>
+</section>
+
+<section id="calc">
+  <p class="eyebrow">MY BUDGET</p>
+  <h2>我的預算試算</h2>
+  <p class="sub">在上面價目表點選品項，這裡會自動加總。</p>
+  <div class="calc">
+    <ul id="calcList"></ul>
+    <p class="empty" id="calcEmpty">還沒選任何品項，回到 <a href="#price">價目表</a> 點一下就會加進來。</p>
+    <div class="total"><span>合計</span><b id="calcKrw">₩0<i class="twd" id="calcTwd">約 NT$0</i></b></div>
+    <button class="clear" id="calcClear" type="button">全部清除</button>
+  </div>
+  <p class="small" style="margin-top:10px">活動贈送與折扣沒有算進去。實際療程和價格以診所諮詢為準。</p>
+</section>
+
+<section id="fx">
+  <p class="eyebrow">CURRENCY</p>
+  <h2>韓元台幣換算</h2>
+  <p class="sub">輸入任一邊，另一邊自動換算。</p>
+  <div class="fx">
+    <label for="fxKrw">韓元</label>
+    <div class="in"><span>₩</span><input id="fxKrw" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+    <div class="swap" aria-hidden="true">⇅</div>
+    <label for="fxTwd">台幣</label>
+    <div class="in"><span>NT$</span><input id="fxTwd" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+    <div class="chips"><button type="button" data-v="100000">10 萬韓元</button><button type="button" data-v="500000">50 萬韓元</button><button type="button" data-v="1000000">100 萬韓元</button><button type="button" data-v="2000000">200 萬韓元</button></div>
+    <p class="rate" id="rateNote">匯率：1 韓元約 0.024761 台幣</p>
+  </div>
+  <p class="small" style="margin-top:10px">匯率是市場參考價，換匯、刷卡的實際金額以銀行和換匯所為準。</p>
 </section>
 
 <section id="info">
@@ -225,7 +293,75 @@ footer p{margin:0 0 8px}
 </footer>
 </main>
 
-<div class="bar"><a class="btn btn-line" href="https://tw.forte-clinic.net/line-go?v=C&p=mohuang" target="_blank" rel="noopener">加 Forte 中文 LINE 諮詢</a></div>
+<div class="bar"><a class="sum" id="sumBar" href="#calc"><span id="sumN">已選 0 項</span><b id="sumV"></b></a><a class="btn btn-line" href="https://tw.forte-clinic.net/line-go?v=C&p=mohuang" target="_blank" rel="noopener">加 Forte 中文 LINE 諮詢</a></div>
 
+<script>
+(function(){
+  var rate = 0.024761, rateDate = "2026/11/20";
+  var KEY = "forte-picks";
+  function fmt(n){ return Math.round(n).toLocaleString("en-US"); }
+  function twd(k){ return "約 NT$" + fmt(k * rate); }
+  function paint(){
+    document.querySelectorAll(".twd[data-krw]").forEach(function(el){ el.textContent = "（" + twd(+el.dataset.krw) + "）"; });
+    document.getElementById("rateNote").textContent = "匯率：1 萬韓元約 NT$" + (rate * 10000).toFixed(1) + "（" + rateDate + " 更新）";
+    render(); fromKrw();
+  }
+  // 挑選與試算
+  var picks = [];
+  try { picks = JSON.parse(localStorage.getItem(KEY)) || []; } catch(e) {}
+  var cells = document.querySelectorAll(".pick");
+  function id(el){ return el.dataset.g + "|" + el.dataset.n + "|" + el.dataset.krw; }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch(e) {} }
+  function render(){
+    var list = document.getElementById("calcList"), sum = 0;
+    list.innerHTML = "";
+    cells.forEach(function(el){ el.classList.toggle("on", picks.indexOf(id(el)) > -1); });
+    picks.forEach(function(p){
+      var a = p.split("|"), k = +a[2]; sum += k;
+      var li = document.createElement("li");
+      li.innerHTML = '<span></span><b></b><button type="button" aria-label="移除">×</button>';
+      li.firstChild.textContent = a[1];
+      var sm = document.createElement("small"); sm.textContent = a[0]; li.firstChild.appendChild(sm);
+      li.children[1].innerHTML = "₩" + fmt(k) + '<i class="twd">' + twd(k) + "</i>";
+      li.lastChild.onclick = function(){ picks.splice(picks.indexOf(p), 1); save(); render(); };
+      list.appendChild(li);
+    });
+    document.getElementById("calcEmpty").style.display = picks.length ? "none" : "";
+    document.getElementById("calcClear").style.display = picks.length ? "" : "none";
+    document.getElementById("calcKrw").firstChild.nodeValue = "₩" + fmt(sum);
+    document.getElementById("calcTwd").textContent = twd(sum);
+    var bar = document.getElementById("sumBar");
+    bar.classList.toggle("show", picks.length > 0);
+    document.getElementById("sumN").textContent = "我的預算：已選 " + picks.length + " 項";
+    document.getElementById("sumV").textContent = "₩" + fmt(sum) + "（" + twd(sum) + "）";
+  }
+  cells.forEach(function(el){
+    el.addEventListener("click", function(){
+      var k = id(el), i = picks.indexOf(k);
+      if (i > -1) picks.splice(i, 1); else picks.push(k);
+      save(); render();
+    });
+  });
+  document.getElementById("calcClear").onclick = function(){ picks = []; save(); render(); };
+  // 換算器
+  var ik = document.getElementById("fxKrw"), it = document.getElementById("fxTwd");
+  function num(s){ return +String(s).replace(/[^0-9.]/g, "") || 0; }
+  function fromKrw(){ var v = num(ik.value); it.value = v ? fmt(v * rate) : ""; }
+  function fromTwd(){ var v = num(it.value); ik.value = v ? fmt(v / rate) : ""; }
+  ik.addEventListener("input", function(){ var v = num(ik.value); ik.value = v ? fmt(v) : ""; fromKrw(); });
+  it.addEventListener("input", function(){ var v = num(it.value); it.value = v ? fmt(v) : ""; fromTwd(); });
+  document.querySelectorAll(".chips button").forEach(function(b){ b.onclick = function(){ ik.value = fmt(+b.dataset.v); fromKrw(); }; });
+  paint();
+  // 打開網頁時抓最新匯率，抓不到就用上面的備用匯率
+  fetch("https://open.er-api.com/v6/latest/KRW").then(function(r){ return r.json(); }).then(function(d){
+    if (d && d.result === "success" && d.rates && d.rates.TWD > 0) {
+      rate = d.rates.TWD;
+      var t = new Date(d.time_last_update_unix * 1000);
+      rateDate = t.getFullYear() + "/" + (t.getMonth() + 1) + "/" + t.getDate();
+      paint();
+    }
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
